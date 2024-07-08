@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  goodwe-mqtt-bridge:
+    build: '.'
+    restart: unless-stopped
+    environment:
+      MQTT_BROKER_ADDRESS: ${MQTT_BROKER_ADDRESS:-localhost}
+      MQTT_BROKER_PORT: ${MQTT_BROKER_PORT:-1883}
+      MQTT_TOPIC_FORMAT: 'goodwe/{attribute}'
+      MQTT_QOS: '0'
+      MQTT_RETAIN: 'true'
+      GOODWE_SYSTEM_ID: ${GOODWE_SYSTEM_ID}
+      GOODWE_EMAIL: ${GOODWE_EMAIL}
+      GOODWE_PASSWORD: ${GOODWE_PASSWORD}
+      UPDATE_INTERVAL: '900'
