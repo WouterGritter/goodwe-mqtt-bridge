@@ -59,6 +59,8 @@ def update():
 def main():
     global mqttc, inverter
 
+    print(f'goodwe-mqtt-bridge version {os.getenv("IMAGE_VERSION")}')
+
     print(f'{MQTT_BROKER_ADDRESS=}')
     print(f'{MQTT_BROKER_PORT=}')
     print(f'{MQTT_TOPIC_FORMAT=}')
